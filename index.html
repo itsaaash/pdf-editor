@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Studio - Modern PDF Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon" id="theme-icon"></i>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-file-pdf"></i>
+                <h1>PDF Studio</h1>
+            </div>
+            <p class="subtitle">Professional PDF editing, right in your browser</p>
+        </header>
+
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <div class="upload-card" id="uploadZone">
+                <div class="upload-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <h3>Drop your PDF here</h3>
+                <p>or click to browse files</p>
+                <input type="file" id="fileInput" accept=".pdf" multiple>
+                <div class="file-info" id="fileInfo" style="display: none;"></div>
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section class="tools-section" id="toolsSection" style="display: none;">
+            <h2>Choose Your Tool</h2>
+            <div class="tools-grid">
+                <div class="tool-card" onclick="splitPDF()">
+                    <div class="tool-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>Split PDF</h3>
+                    <p>Divide your PDF into separate files</p>
+                </div>
+
+                <div class="tool-card" onclick="mergePDFs()">
+                    <div class="tool-icon">
+                        <i class="fas fa-object-group"></i>
+                    </div>
+                    <h3>Merge PDFs</h3>
+                    <p>Combine multiple PDFs into one</p>
+                </div>
+
+                <div class="tool-card" onclick="compressPDF()">
+                    <div class="tool-icon">
+                        <i class="fas fa-compress-alt"></i>
+                    </div>
+                    <h3>Compress</h3>
+                    <p>Reduce file size without quality loss</p>
+                </div>
+
+                <div class="tool-card" onclick="signPDF()">
+                    <div class="tool-icon">
+                        <i class="fas fa-signature"></i>
+                    </div>
+                    <h3>Add Signature</h3>
+                    <p>Sign your documents digitally</p>
+                </div>
+
+                <div class="tool-card" onclick="highlightPDF()">
+                    <div class="tool-icon">
+                        <i class="fas fa-highlighter"></i>
+                    </div>
+                    <h3>Highlight</h3>
+                    <p>Mark important text sections</p>
+                </div>
+
+                <div class="tool-card" onclick="rotatePDF()">
+                    <div class="tool-icon">
+                        <i class="fas fa-redo-alt"></i>
+                    </div>
+                    <h3>Rotate Pages</h3>
+                    <p>Adjust page orientation</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preview Area -->
+        <section class="preview-section" id="previewArea" style="display: none;">
+            <h2>Preview</h2>
+            <div class="preview-card">
+                <div id="previewContent"></div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="download-section" id="downloadSection" style="display: none;">
+            <button class="download-btn" id="downloadBtn" onclick="downloadPDF()">
+                <i class="fas fa-download"></i>
+                <span>Download Your PDF</span>
+            </button>
+        </section>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Processing your PDF...</p>
+        </div>
+    </div>
+
+    <script src="libs/pdf-lib.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
